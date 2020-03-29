@@ -4,9 +4,9 @@ import "dayjs/locale/ja";
 dayjs.locale("ja");
 
 
-export const createCalendar = () => {
+export const createCalendar = month => {
   // 今月の最初の日を取得
-  const firstDay = dayjs().startOf("month");
+  const firstDay = getMonth(month);
   // 最初の日は何曜日かIndexを取得
   const firstDayIndex = firstDay.day();
 
@@ -34,3 +34,7 @@ export const isSameMonth = (m1, m2) => {
 };
 // 1日かどうか true or false
 export const isFirstDay = day => day.date() === 1;
+
+export const getMonth = ({ year, month }) => {
+  return dayjs(`${year}-${month}`);
+};

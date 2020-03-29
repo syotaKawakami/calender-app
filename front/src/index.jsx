@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
-import CalendarBoard from "./components/CalendarBoard";
+import rootReducer from "./redux/rootReducer";
+import CalendarBoard from "./components/CalendarBoard/container";
+
+// storeを作成。storeにreducerを登録する
+const store = createStore(rootReducer);
 
 const App = () => (
-  <div>
+  // Providerコンポーネントを使うことでstoreをreact-reduxから使えるようにする
+  <Provider store={store}>
     <CalendarBoard />
-  </div>
+  </Provider>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
