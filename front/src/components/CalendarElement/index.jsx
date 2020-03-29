@@ -2,16 +2,17 @@ import React from "react";
 import dayjs from "dayjs";
 import { Typography } from "@material-ui/core";
 
-import { isSameMonth, isFirstDay, isSameDay } from "../../services/calendar";
+import { isSameMonth, isFirstDay, isSameDay, getMonth } from "../../services/calendar";
 
 import * as styles from "./style.css";
 
-const CalendarElement = ({ day }) => {
+const CalendarElement = ({ day, month }) => {
 
   const today = dayjs(); // 今日の日付情報取得
 
   // 今月以外の日付けの色変更
-  const isCurrentMonth = isSameMonth(day, today);
+  const currentMonth = getMonth(month);
+  const isCurrentMonth = isSameMonth(day, currentMonth);
   const textColor = isCurrentMonth ? "textPrimary" : "textSecondary";
 
   // 月の最初の1日だけ月情報を表示する(MM月1日)
