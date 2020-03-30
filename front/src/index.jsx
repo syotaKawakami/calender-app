@@ -5,7 +5,7 @@ import { createStore } from "redux";
 
 import rootReducer from "./redux/rootReducer";
 import CalendarBoard from "./components/CalendarBoard/container";
-import Navigation from "./components/Navigation/presentation";
+import Navigation from "./components/Navigation/container";
 
 // storeを作成。storeにreducerを登録する
 const store = createStore(rootReducer);
