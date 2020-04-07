@@ -8,6 +8,7 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import rootReducer from "./redux/rootReducer";
 import CalendarBoard from "./components/CalendarBoard/container";
 import Navigation from "./components/Navigation/container";
+import AddScheduleDialog from "./components/AddScheduleDialog/container";
 
 // storeを作成。storeにreducerを登録する
 const store = createStore(rootReducer);
@@ -17,6 +18,7 @@ const App = () => (
   <Provider store={store}>
     <MuiPickersUtilsProvider utils={DayjsUtils}>
       <Navigation />
+      <AddScheduleDialog />
       <CalendarBoard />
     </MuiPickersUtilsProvider>
   </Provider>
