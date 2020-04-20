@@ -4,9 +4,10 @@ import { Typography } from "@material-ui/core";
 
 import { isSameMonth, isFirstDay, isSameDay, getMonth } from "../../services/calendar";
 
+import Schedule from "../Schedule";
 import * as styles from "./style.css";
 
-const CalendarElement = ({ day, month }) => {
+const CalendarElement = ({ day, month, schedules }) => {
 
   const today = dayjs(); // 今日の日付情報取得
 
@@ -35,6 +36,11 @@ const CalendarElement = ({ day, month }) => {
           {day.format(format)}
         </span>
       </Typography>
+      <div className={styles.schedules}>
+        {schedules.map(e => (
+          <Schedule key={e.id} schedule={e} />
+        ))}
+      </div>
     </div>
   );
 };
